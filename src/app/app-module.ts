@@ -7,11 +7,17 @@ import { App } from './app';
 import { HomeComponent } from './components/home-component/home-component';
 import { MenuComponent } from './components/menu-component/menu-component';
 import { DepartamentosService } from './services/departamentos.service';
+import { CreateComponent } from './components/create-component/create-component';
 
 @NgModule({
-  declarations: [App, HomeComponent, MenuComponent],
+  declarations: [App, HomeComponent, MenuComponent, CreateComponent],
   imports: [BrowserModule, AppRoutingModule],
-  providers: [provideBrowserGlobalErrorListeners(), provideHttpClient(), FormsModule, DepartamentosService],
+  providers: [
+    provideBrowserGlobalErrorListeners(),
+    provideHttpClient(),
+    FormsModule,
+    DepartamentosService,
+  ],
   bootstrap: [App],
 })
 export class AppModule {}
