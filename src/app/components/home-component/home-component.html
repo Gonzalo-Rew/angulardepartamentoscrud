@@ -22,6 +22,7 @@
                 <td>
                   <a [routerLink]="['/details', item.numero, item.nombre, item.localidad]" class="btn btn-sm btn-outline-primary">Detalles</a>
                   <a [routerLink]="['/update', item.numero]" class="btn btn-sm btn-outline-warning ms-2">Editar</a>
+                  <button (click)="deleteDepartamento(item.numero)" class="btn btn-sm btn-outline-danger ms-2">Eliminar</button>
                 </td>
               </tr>
             }

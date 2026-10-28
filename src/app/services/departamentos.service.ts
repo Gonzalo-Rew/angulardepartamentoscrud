@@ -31,4 +31,9 @@ export class DepartamentosService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return firstValueFrom(this._http.put(url, JSON.stringify(departamento), { headers }));
   }
+
+  async deleteDepartamento(id: number): Promise<unknown> {
+    const url = this.urlApiDepartamentos + `/api/departamentos/${id}`;
+    return firstValueFrom(this._http.delete(url));
+  }
 }
