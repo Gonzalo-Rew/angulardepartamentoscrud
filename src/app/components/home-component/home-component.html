@@ -10,6 +10,7 @@
               <th scope="col">Número</th>
               <th scope="col">Nombre</th>
               <th scope="col">Localidad</th>
+              <th scope="col">Acciones</th>
             </tr>
           </thead>
           <tbody>
@@ -18,6 +19,10 @@
                 <td>{{ item.numero }}</td>
                 <td>{{ item.nombre }}</td>
                 <td>{{ item.localidad }}</td>
+                <td>
+                  <a [routerLink]="['/details', item.numero, item.nombre, item.localidad]" class="btn btn-sm btn-outline-primary">Detalles</a>
+                  <a [routerLink]="['/update', item.numero]" class="btn btn-sm btn-outline-warning ms-2">Editar</a>
+                </td>
               </tr>
             }
           </tbody>

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Departamento } from '../models/departamento';
 import { environment } from '../../environments/environment.development';
-import { Observable, firstValueFrom } from 'rxjs';
+import { firstValueFrom } from 'rxjs';
 
 @Injectable()
 export class DepartamentosService {
@@ -15,9 +15,20 @@ export class DepartamentosService {
     return firstValueFrom(this._http.get<Departamento[]>(url));
   }
 
-  postDepartamento(departamento: Departamento): Observable<unknown> {
+  async postDepartamento(departamento: Departamento): Promise<unknown> {
     const url = this.urlApiDepartamentos + '/api/departamentos';
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this._http.post(url, departamento, { headers });
+    return firstValueFrom(this._http.post(url, departamento, { headers }));
+  }
+
+  async getDepartamentoById(id: number): Promise<Departamento> {
+    const url = this.urlApiDepartamentos + `/api/departamentos/${id}`;
+    return firstValueFrom(this._http.get<Departamento>(url));
+  }
+
+  async putDepartamento(departamento: Departamento): Promise<unknown> {
+    const url = this.urlApiDepartamentos + `/api/departamentos/`;
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return firstValueFrom(this._http.put(url, JSON.stringify(departamento), { headers }));
   }
 }
