@@ -11,11 +11,10 @@ import { CreateComponent } from './components/create-component/create-component'
 
 @NgModule({
   declarations: [App, HomeComponent, MenuComponent, CreateComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideHttpClient(),
-    FormsModule,
     DepartamentosService,
   ],
   bootstrap: [App],
